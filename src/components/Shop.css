@@ -1,0 +1,58 @@
+
+
+main.ant-layout-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+header.ant-layout-header ,main.main-container.ant-layout-content, body, section.ant-layout{
+    background-image: linear-gradient(#42474c, #5f677a, #42474c);
+  
+}
+h2.ant-typography {
+    color: white;
+    padding: 10px;
+}
+.ant-card-bordered {
+    border: 1px solid #e8e8e8;
+    border-radius: 20px;
+    margin: 10px;
+}
+.ant-input-number {
+    width: 200px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+main.input-container.ant-layout-content {
+    background-color: white;
+    width: 100%;
+}
+h3.ant-typography {
+    margin: 20px;
+}
+.ant-card-head {
+    border-top-left-radius: 20px;
+    background: green;
+    margin: 0;
+    padding: 0;
+    border-top-right-radius: 20px;
+}
+.ant-card-body {
+    background: #8080801a;
+}
+
+span {
+    font-size: large;
+    font-weight: bold;
+}
+@media only screen and (max-width: 700px) {
+   
+    main.ant-layout-content {
+       
+        flex-direction: column;
+        align-self: center;
+
+    }
+
+  }
