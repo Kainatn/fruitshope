@@ -8,8 +8,8 @@ const { Header, Content } = Layout;
 
 export class Shop extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             appleRupee: '',
             orangeRupee: '',
@@ -21,66 +21,77 @@ export class Shop extends Component {
         }
     }
 
-    //Get input Values and Mulitply by its price
-
+    //Get input Values and Mulitply by its price and get total of apple 
 
     getAppleRupees = (value) => {
-        const { userInput, appleRupee } = this.state;
-        if (userInput > appleRupee || userInput == null) {
-            alert("you have insufficient balance");
+        if (value >= 0) {
+            let appleRupee = value * 10;
+            const { userInput, orangeRupee, bananaRupee } = this.state;
+            let total = appleRupee + orangeRupee + bananaRupee;
+            if (userInput >= total) {
+                this.setState({
+                    appleRupee: appleRupee,
+                    totalBill: total
+                })
+            }
+            else {
+                alert('You have insificient balance');
+            }
+
         }
 
-        this.setState({
-            appleRupee: value * 10,
-            bill: this.sumInput()
-        });
-
     }
+
+    //Get input Values and Mulitply by its price and get total of orange 
+
     getOrangeRupees = (value) => {
-        const { userInput, orangeRupee } = this.state;
-        // if (userInput < orangeRupee || userInput == null) {
-        //     alert("you have insufitiant balance")
-        // }
-        this.setState({
-            orangeRupee: value * 15,
-        })
-        this.sumInput();
+        if (value >= 0) {
+            let orangeRupee = value * 15;
+            const { userInput, appleRupee, bananaRupee } = this.state;
+            let total = appleRupee + orangeRupee + bananaRupee;
+            if (userInput >= total) {
+                this.setState({
+                    orangeRupee: orangeRupee,
+                    totalBill: total
+                })
+            }
+            else {
+                alert('You have insificient balance');
+            }
+
+        }
     }
+
+    //Get input Values and Mulitply by its price and get total of banana 
+
     getBananaRupees = (value) => {
-        const { userInput, bananaRupee } = this.state;
-        // if (userInput < bananaRupee || userInput == null) {
-        //     alert("you have insufitiant balance")
-        // }
-        this.setState({
-            bananaRupee: value * 20,
-        })
+        if (value >= 0) {
+            let bananaRupee = value * 20;
+            const { userInput, appleRupee, orangeRupee } = this.state;
+            let total = appleRupee + orangeRupee + bananaRupee;
+            if (userInput >= total) {
+                this.setState({
+                    bananaRupee: bananaRupee,
+                    totalBill: total
+                })
+            }
+            else {
+                alert('You have insificient balance');
+            }
 
-        this.sumInput();
+        }
     }
-    //Sum All inputs Values 
-    sumInput = () => {
-        let { appleRupee, orangeRupee, bananaRupee, totalBill } = this.state;
-        this.setState({
-            totalBill: appleRupee + orangeRupee + bananaRupee,
-        })
+    // onChange = (value) => {
+    //     console.log('user input inside handle ', value);
+    //     this.setState({
+    //         userInput: value,
+    //     })
+    // }
 
-    }
-
-    onChange = (value) => {
-        console.log('user input inside handle ', value);
-        this.setState({
-            userInput: value,
-        })
-    }
-    componentWillMount() {
-        this.sumInput();
-    }
     render() {
         console.log(this.state.appleRupee);
         console.log(this.state.userInput);
         console.log(this.state.totalBill);
-
-
         return (
             <Layout>
                 <Header>
@@ -88,14 +99,14 @@ export class Shop extends Component {
                 </Header>
                 <Content className="input-container">
                     <div>
-                        <span>I have Rs.</span> <InputNumber min={1} max={1000} onChange={this.onChange} />
+                        <span>I have Rs.</span> <InputNumber min={1} max={this.value} onChange={this.onChange} />
                         <div className="total"><Title level={3}> Your Total is {this.state.totalBill}</Title></div>
                     </div>
                 </Content>
                 <Content className="main-container">
-                    <MainCard imgUrl={require('./../images/apple.png')} Title={'Apple'} price={'Rs.10'} text={'apple'} Rupees={this.getAppleRupees} Bill={this.sumInput} user={this.onChange} />
-                    <MainCard imgUrl={require('./../images/Orange.png')} Title={'Orange'} price={'Rs.15'} text={'orange'} Rupees={this.getOrangeRupees} Bill={this.sumInput} />
-                    <MainCard imgUrl={require('./../images/banana.png')} Title={'Banana'} price={'Rs.20'} text={'banana'} Rupees={this.getBananaRupees} Bill={this.sumInput} />
+                    <MainCard imgUrl={require('./../images/apple.png')} Title={'Apple'} price={'Rs.10'} text={'apple'} Rupees={this.getAppleRupees} user={this.onChange} />
+                    <MainCard imgUrl={require('./../images/Orange.png')} Title={'Orange'} price={'Rs.15'} text={'orange'} Rupees={this.getOrangeRupees} />
+                    <MainCard imgUrl={require('./../images/banana.png')} Title={'Banana'} price={'Rs.20'} text={'banana'} Rupees={this.getBananaRupees} />
                 </Content>
             </Layout>
         );
