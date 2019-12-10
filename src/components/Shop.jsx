@@ -81,17 +81,19 @@ export class Shop extends Component {
 
         }
     }
-    // onChange = (value) => {
-    //     console.log('user input inside handle ', value);
-    //     this.setState({
-    //         userInput: value,
-    //     })
-    // }
+    onChange = (value) => {
+        console.log('user input inside handle ', value);
+        this.setState({
+            userInput: value,
+        })
+    }
 
     render() {
         console.log(this.state.appleRupee);
         console.log(this.state.userInput);
         console.log(this.state.totalBill);
+
+
         return (
             <Layout>
                 <Header>
