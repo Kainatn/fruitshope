@@ -11,11 +11,11 @@ export class Shop extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            appleRupee: '',
-            orangeRupee: '',
-            bananaRupee: '',
-            totalBill: "",
-            userInput: '',
+            appleRupee: 0,
+            orangeRupee: 0,
+            bananaRupee: 0,
+            totalBill: 0,
+            userInput: null,
 
 
         }
@@ -101,7 +101,7 @@ export class Shop extends Component {
                 </Header>
                 <Content className="input-container">
                     <div>
-                        <span>I have Rs.</span> <InputNumber min={1} max={this.value} onChange={this.onChange} />
+                        <span>I have Rs.</span> <InputNumber type="number" min={1} max={this.value} onChange={this.onChange} />
                         <div className="total"><Title level={3}> Your Total is {this.state.totalBill}</Title></div>
                     </div>
                 </Content>

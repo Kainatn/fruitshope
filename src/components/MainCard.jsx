@@ -15,7 +15,7 @@ export class MainCard extends Component {
                     <div className="custom-card">
                         <Title level={3}>{this.props.Title} </Title>
                         <form>
-                            <InputNumber min={0} max={100} onChange={this.props.Rupees} />
+                            <InputNumber min={0} max={100} onChange={this.props.Rupees}  type="number" />
                         </form>
                     </div>
                 </Card>
