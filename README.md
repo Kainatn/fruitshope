@@ -1,4 +1,13 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Fruit Shop
+
+## Code Flow
+
+* Created a Shop.jsx component in App.jsx
+* Initilaized states of apple , banana , orange ,total bill and userInput 
+* Created  a component of MainCard.jsx and passusing 
+* Created  a function to get money from user have
+* Created  a function to get items user want to buy and copmare it with money user have
+  and make a total bill of items using setState.
 
 # Available Scripts
 
