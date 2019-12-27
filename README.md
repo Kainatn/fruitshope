@@ -1,5 +1,7 @@
 ## Fruit Shop
 
+published Here: [Guess Game](https://refactored-guessgame.now.sh/)
+
 ## Code Flow
 
 * Created a Shop.jsx component in App.jsx
